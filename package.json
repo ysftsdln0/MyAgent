@@ -4,16 +4,21 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "build:tailwind": "tailwindcss build src/renderer/styles.css -o dist/css/tailwind.css",
+    "start": "npm run build:tailwind && electron ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "electron": "^36.3.1"
+    "autoprefixer": "^10.4.21",
+    "electron": "^36.3.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7"
   },
   "dependencies": {
+    "@google-cloud/speech": "^7.1.0",
     "dotenv": "^16.5.0",
     "openai": "^4.103.0"
   }

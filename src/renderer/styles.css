@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Özel stiller (Tailwind sınıfları ile kolayca yapılamayanlar) */
+
+#response {
+   white-space: pre-wrap; /* Metin kaydırmayı ve boşlukları koru */
+   word-wrap: break-word; /* Uzun kelimeleri kır */
+}
+
+/* Kendi özel stilleriniz buraya gelecek */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Tailwind sınıfları ile arka plan ve metin rengi ayarlanacak */
+    /* background-color: #f8f9fa; */
+    /* color: #212529; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    /* Tailwind sınıfları ile stil verilecek */
+    /* background-color: #fff; */
+    /* padding: 30px; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* width: 90%; */
+    /* max-width: 600px; */
+    /* text-align: center; */
+}
+
+/* Başlık, durum mesajı, input ve buton stilleri Tailwind sınıfları ile yönetilecek */
+
+#micButton.recording {
+    /* Buton rengi Tailwind sınıfları ile ayarlanacak */
+}
+
+/* Durum mesajları renkleri Tailwind sınıfları ile yönetilecek */
+
+/* Responsive düzenleme Tailwind'in utility sınıfları ile yapılacak */
+/* @media (max-width: 480px) { */
+/*     .container { */
+/*         padding: 20px; */
+/*     } */
+/* } */ 

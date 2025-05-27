@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAgent</title>
+    <!-- Tailwind CSS -->
+    <link href="../../dist/css/tailwind.css" rel="stylesheet">
+    <!-- Kendi özel stilleriniz -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-gray-50 flex items-center justify-center min-h-screen p-6">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg text-center border border-gray-200">
+      <h1 class="text-3xl font-extrabold mb-6 text-gray-800">MyAgent</h1>
+      <div id="status" class="mb-4 text-sm font-semibold text-gray-600 min-h-[1.5em]">Bekleniyor...</div>
+      <div class="mb-6">
+        <textarea id="commandInput" class="w-full p-4 border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none transition duration-200 ease-in-out" placeholder="Buraya yazın veya mikrofona konuşun..." rows="4"></textarea>
+      </div>
+      <button id="micButton" class="w-full py-4 px-6 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+        Mikrofon Başlat
+      </button>
+      <div id="response" class="w-full p-4 mt-6 border border-gray-300 rounded-lg text-left bg-gray-100 whitespace-pre-wrap word-wrap break-word min-h-[150px] overflow-auto text-gray-700 leading-relaxed"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html> 

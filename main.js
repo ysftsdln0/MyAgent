@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('node:path')
 require('dotenv').config()
+const voice = require('./src/modules/voice')
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -9,11 +10,20 @@ const createWindow = () => {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      enableRemoteModule: false
+      nodeIntegration: false,
+      webSecurity: true,
+      allowRunningInsecureContent: false,
+      enableRemoteModule: false,
+      // Web Speech API artık kullanılmıyor, bu özellik kaldırılabilir
+      // experimentalFeatures: true,
+      // enableBlinkFeatures: 'SpeechRecognition' 
     }
   })
 
-  mainWindow.loadFile('index.html')
+  // Geliştirici araçları artık otomatik açılmayacak
+  // mainWindow.webContents.openDevTools()
+  
+  mainWindow.loadFile(path.join(__dirname, 'src/renderer/index.html'))
 }
 
 app.whenReady().then(() => {
@@ -34,7 +44,7 @@ app.on('window-all-closed', () => {
 
 ipcMain.on('send-command-to-llm', async (event, command) => {
     console.log('main.js: Komut alındı ->', command);
-    const llm = require('./llm');
+    const llm = require('./src/modules/llm');
     try {
         const response = await llm.getLlmResponse(command);
         console.log('main.js: LLM yanıtı alındı ->', response);
@@ -47,7 +57,7 @@ ipcMain.on('send-command-to-llm', async (event, command) => {
 
 ipcMain.on('execute-system-command', (event, command) => {
     console.log('main.js: Sistem komutu alındı ->', command);
-    const commands = require('./commands');
+    const commands = require('./src/modules/commands');
     try {
         commands.executeCommand(command);
         event.reply('system-command-executed', `Komut başarıyla çalıştırıldı: ${command}`);
@@ -59,6 +69,5 @@ ipcMain.on('execute-system-command', (event, command) => {
 
 ipcMain.on('speak-text', (event, text) => {
     console.log('main.js: Seslendirme isteği alındı ->', text);
-    const voice = require('./voice');
     voice.speakText(text);
 }); 

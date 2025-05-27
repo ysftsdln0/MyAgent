@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 
 function speakText(text) {
-    // macOS'te metni seslendirmek için 'say' komutunu kullan
+    // macOS'te metni seslendirmek için 'say' komutunu kullanır.
     const command = `say "${text}"`;
     exec(command, (error, stdout, stderr) => {
         if (error) {
