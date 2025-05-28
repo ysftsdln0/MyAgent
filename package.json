@@ -13,7 +13,8 @@
   "description": "",
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "electron": "^36.3.1",
+    "electron": "^29.0.0",
+    "electron-rebuild": "^3.2.9",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7"
   },
