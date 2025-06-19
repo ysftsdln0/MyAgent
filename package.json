@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@google-cloud/speech": "^7.1.0",
+    "caniuse-lite": "^1.0.30001723",
     "dotenv": "^16.5.0",
     "openai": "^4.103.0"
   }
